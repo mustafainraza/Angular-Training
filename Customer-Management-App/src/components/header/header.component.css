@@ -1,0 +1,13 @@
+.nav-item {
+    margin: 0px 0.75rem;
+    color: white;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+    color: gray;
+    background-color: white;
+    padding: 0.3rem 1.1rem;
+    margin: 5px;
+    border-radius: 2px;
+}

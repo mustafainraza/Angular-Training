@@ -1,0 +1,13 @@
+.tabs a{
+    cursor: pointer;
+}
+.tabs img {
+    margin-right: 2px;
+    width: 23px;
+    height: 23px;
+    
+} 
+
+.active {
+    font-weight: bold;
+}

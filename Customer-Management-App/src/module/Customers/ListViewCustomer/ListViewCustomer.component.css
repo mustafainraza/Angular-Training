@@ -1,0 +1,26 @@
+
+.container {
+    margin-top: 50px;
+}
+
+td {
+    font-weight: 500;
+}
+
+td img {
+    width: 25px;
+    height: 25px;
+}
+
+.customer-hovered-row {
+    background-color: #0c58a0;
+}
+
+.odd-row {
+    background-color: #be0000; /* Light gray */
+    color: red;
+  }
+  
+  .even-row {
+    background-color: #ffffff; /* White */
+  }
