@@ -31,7 +31,6 @@ const routes: Routes = [
     path: 'customer/:id',
     component:CustomerComponent,
     children: [
-      { path: 'customer/:id', redirectTo: 'list-view', pathMatch: 'prefix' },
       { path: 'detail/:id', component: CustomerdetailViewComponent },
       { path: 'orderdetails/:id', component: CustomerOrderComponent},
       { path: 'editcustomer/:id', component: CustomerEditComponent },

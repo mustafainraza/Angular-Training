@@ -16,6 +16,6 @@ export class CustomerTabComponent implements OnInit {
   ngOnInit() {
     this.id=this.route.snapshot.paramMap.get('id')
     console.log("main id",this.id)
-    this.router.navigate(['/customer',this.id,'detail',this.id]);
+    //this.router.navigate(['/customer',this.id,'detail',this.id]);
   }
 }

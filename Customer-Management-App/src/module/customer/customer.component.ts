@@ -9,5 +9,6 @@ import { CustomerService } from '../../core/services/customer.service';
 })
 export class CustomerComponent implements OnInit {
   ngOnInit() {
+    
   }
 }

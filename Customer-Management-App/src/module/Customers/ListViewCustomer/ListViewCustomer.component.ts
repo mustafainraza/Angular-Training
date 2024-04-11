@@ -18,10 +18,4 @@ export class ListViewCustomerComponent implements OnInit {
     this.customers = this.customerService.customers;
   }
 
-  onRowClicked(customerId: number) {
-    //this.router.navigate(['/detail-view', customerId]);
-    console.log('abc',customerId)
-    
-  }
-
 }
