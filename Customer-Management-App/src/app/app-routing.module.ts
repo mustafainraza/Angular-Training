@@ -13,6 +13,7 @@ import { CustomerComponent } from '../module/customer/customer.component';
 import { CustomerOrderComponent } from '../module/customer/order/customer-order/customer-order.component';
 import { CustomerEditComponent } from '../module/customer/editcustomer/customer-edit/customer-edit.component';
 
+//routes specification
 const routes: Routes = [
   { path: '', component: CustomersComponent },
   {
@@ -27,15 +28,15 @@ const routes: Routes = [
     ]
 
   },
-  {
-    path: 'customer/:id',
-    component:CustomerComponent,
+  {//loadChildren function is use for lazy loading
+    path: 'customer/:id', 
+    component: CustomerComponent,
     children: [
-      { path: 'detail/:id', component: CustomerdetailViewComponent },
-      { path: 'orderdetails/:id', component: CustomerOrderComponent},
-      { path: 'editcustomer/:id', component: CustomerEditComponent },
-     
+      { path: 'detail/:id', loadChildren: () => import('../module/customer/details/details.module').then(m => m.DetailsModule) },
+      { path: 'orderdetails/:id', loadChildren: () => import('../module/customer/order/order.module').then(m => m.OrderModule) },
+      { path: 'editcustomer/:id', loadChildren: () => import('../module/customer/editcustomer/editcustomer.module').then(m => m.EditcustomerModule) },
     ]
+
 
   },
   { path: 'orders', component: OrdersComponent },
