@@ -9,12 +9,12 @@ import { CustomerService } from '../../../core/services/customer.service';
 })
 export class CustomerTabComponent implements OnInit {
 
-  id:any=1;
+  id:number=1;
   customer:any
   constructor(private route: ActivatedRoute,private customerService:CustomerService,private router:Router) { }
 
   ngOnInit() {
-    this.id=this.route.snapshot.paramMap.get('id')
+    this.customerService.currentCustomerId.subscribe(id => this.id = id);
     console.log("main id",this.id)
     //this.router.navigate(['/customer',this.id,'detail',this.id]);
   }

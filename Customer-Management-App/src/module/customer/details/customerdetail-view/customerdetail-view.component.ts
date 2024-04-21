@@ -14,7 +14,10 @@ export class CustomerdetailViewComponent implements OnInit {
   constructor(private route: ActivatedRoute,private customerService:CustomerService) { }
 
   ngOnInit(): void {
-    this.customerId=this.route.snapshot.paramMap.get('id')
+    this.route.params.subscribe(params => {
+      this.customerId = +params['id'];
+      this.customerService.changeCustomerId(this.customerId);
+    });
     this.customer= this.customerService.findbyId(this.customerId);
     console.log("customer detail id",this.customerId)
   }

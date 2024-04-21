@@ -13,7 +13,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr appCustomerRowHover *ngFor="let customer of customers; let i = index" [routerLink]="['/customer', customer.id]"  >        
+      <tr appCustomerRowHover *ngFor="let customer of customers; let i = index" (click)="viewCustomerDetail(customer.id)">        
         <td> <img src={{customer.image}} alt="customer"> </td>
         <td>{{customer.firstName}} </td>
         <td> {{customer.lastName}} </td>
@@ -21,7 +21,7 @@
         <td> {{customer.city}} </td>
         <td> {{customer.state}} </td>
         <td> {{customer.orderTotal}} </td>
-        <td > <a [routerLink]="['/customer',customer.id,'orderdetails',customer.id]" routerLinkActive="router-link-active"  > View Orders </a> </td>
+        <td > <a class="link-text" (click)="viewCustomerOrder($event,customer.id)">View Orders</a></td>
       </tr>
     </tbody>
   </table>

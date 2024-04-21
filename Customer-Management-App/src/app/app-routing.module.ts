@@ -15,7 +15,7 @@ import { CustomerEditComponent } from '../module/customer/editcustomer/customer-
 
 //routes specification
 const routes: Routes = [
-  { path: '', component: CustomersComponent },
+  { path: '', redirectTo: 'customers/list-view', pathMatch: 'full' },
   {
     path: 'customers',
     component:CustomersComponent,
@@ -29,12 +29,12 @@ const routes: Routes = [
 
   },
   {//loadChildren function is use for lazy loading
-    path: 'customer/:id', 
+    path: 'customer', 
     component: CustomerComponent,
     children: [
-      { path: 'detail/:id', loadChildren: () => import('../module/customer/details/details.module').then(m => m.DetailsModule) },
-      { path: 'orderdetails/:id', loadChildren: () => import('../module/customer/order/order.module').then(m => m.OrderModule) },
-      { path: 'editcustomer/:id', loadChildren: () => import('../module/customer/editcustomer/editcustomer.module').then(m => m.EditcustomerModule) },
+      { path: 'orderdetails/:id', loadChildren: () => import('../module/customer/order/order.module').then(m => m.OrderModule),pathMatch:'full' },
+      { path: 'detail/:id', loadChildren: () => import('../module/customer/details/details.module').then(m => m.DetailsModule),pathMatch:'full' },
+      { path: 'editcustomer/:id', loadChildren: () => import('../module/customer/editcustomer/editcustomer.module').then(m => m.EditcustomerModule),pathMatch:'full' },
     ]
 
 

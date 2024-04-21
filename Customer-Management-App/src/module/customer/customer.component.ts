@@ -8,7 +8,14 @@ import { CustomerService } from '../../core/services/customer.service';
   styleUrl: './customer.component.css'
 })
 export class CustomerComponent implements OnInit {
+
+  customerId: any;
+  customer:any;
+
+  constructor(private route: ActivatedRoute,private customerService:CustomerService) { }
+
   ngOnInit() {
-    
+    this.customerService.currentCustomerId.subscribe(id => this.customerId = id);
+    console.log("customer detail id11",this.customerId)
   }
 }

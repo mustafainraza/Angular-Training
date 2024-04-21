@@ -18,4 +18,13 @@ export class ListViewCustomerComponent implements OnInit {
     this.customers = this.customerService.customers;
   }
 
+  viewCustomerDetail(customerId:Number):void{
+    this.router.navigate(['/customer/detail',customerId])
+  }
+
+  viewCustomerOrder(event: MouseEvent,customerId:Number):void{
+    event.stopPropagation();
+    this.router.navigate(['/customer/orderdetails',customerId])
+  }
+
 }

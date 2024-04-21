@@ -1,18 +1,18 @@
 <ul class="nav" >
   <li class="nav-item"> 
-    <a  [routerLink]="['/customer',id,'detail',id]"  class="nav-link active" aria-current="page" routerLinkActive="active">
+    <a  [routerLink]="['detail',id]"  class="nav-link active" aria-current="page" routerLinkActive="active">
       Customer Details
     </a>
   </li>
 
   <li class="nav-item"> 
-    <a [routerLink]="['/customer',id,'orderdetails',id]" class="nav-link active" aria-current="page" routerLinkActive="active">
+    <a [routerLink]="['orderdetails',id]" class="nav-link active" aria-current="page" routerLinkActive="active">
       Customer Orders
     </a>
   </li>
 
   <li class="nav-item"> 
-    <a  [routerLink]="['/customer',id,'editcustomer',id]" class="nav-link active" aria-current="page" routerLinkActive="active">
+    <a  [routerLink]="['editcustomer',id]" class="nav-link active" aria-current="page" routerLinkActive="active">
       Edit Customer
     </a>
   </li>

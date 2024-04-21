@@ -16,14 +16,14 @@ export class CustomerEditComponent implements OnInit {
   constructor(private route: ActivatedRoute,private customerService:CustomerService,private router:Router,private toastr: ToastrService) { }
 
   ngOnInit(): void {
-        this.customerId=this.route.snapshot.paramMap.get('id')
+    this.customerService.currentCustomerId.subscribe(id => this.customerId = id);
         this.customer= this.customerService.findbyId(this.customerId);
         // Initialize customer data (e.g., fetch from service)
         
       }
     
       saveChanges(): void {
-        this.router.navigate(['/customer',this.customerId,'detail',this.customerId]);
+        this.router.navigate(['/customer','detail',this.customerId]);
       }
     
 }

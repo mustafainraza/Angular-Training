@@ -1,12 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Customer } from '../../models/customer.interface';
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
 
+  private customerIdSource = new BehaviorSubject<number>(1);
+  currentCustomerId = this.customerIdSource.asObservable();
+
   constructor() { }
+
+  changeCustomerId(id: number) {
+    this.customerIdSource.next(id);
+  }
 
 
   customers: Customer[] = [
