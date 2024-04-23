@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Customer } from '../../models/customer.interface';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
+import { Observable } from 'rxjs/internal/Observable';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../app/environment';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +14,7 @@ export class CustomerService {
   private customerIdSource = new BehaviorSubject<number>(1);
   currentCustomerId = this.customerIdSource.asObservable();
 
-  constructor() { }
+  //constructor(private http: HttpClient) {}
 
   changeCustomerId(id: number) {
     this.customerIdSource.next(id);
@@ -85,5 +89,13 @@ export class CustomerService {
   findbyId(id:number){
    return this.customers.find(cust=>cust.id==id)
   }
+
+  // authenticate(email: string, password: string): Observable<boolean> {
+  //   return this.http.get<any[]>(`${environment.baseURL}?email=${email}&password=${password}`).pipe(
+  //     map((loginUsers: string | any[]) => {
+  //       return loginUsers.length > 0;
+  //     })
+  //   );
+  // }
 
 }

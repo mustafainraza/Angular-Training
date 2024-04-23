@@ -1,0 +1,30 @@
+/* page-not-available.component.css */
+.error-container {
+    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #d93025;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: #4285f4;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}

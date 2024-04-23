@@ -12,13 +12,17 @@ import { CustomerdetailViewComponent } from '../module/customer/details/customer
 import { CustomerComponent } from '../module/customer/customer.component';
 import { CustomerOrderComponent } from '../module/customer/order/customer-order/customer-order.component';
 import { CustomerEditComponent } from '../module/customer/editcustomer/customer-edit/customer-edit.component';
+import { CustomerModule } from '../module/customer/customer.module';
+import { PageNotAvailableComponent } from '../not-found/page-not-available/page-not-available.component';
+import { customerGuard } from '../guards/customer.guard';
+import { SignInComponent } from '../components/sign-in/signin/signin.component';
 
 //routes specification
 const routes: Routes = [
-  { path: '', redirectTo: 'customers/list-view', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
     path: 'customers',
-    component:CustomersComponent,
+    component:CustomersComponent,canActivate: [customerGuard],
     children: [
       { path: '', redirectTo: 'list-view', pathMatch: 'full' },
       { path: 'card-view', component: CardViewCustomerComponent},
@@ -30,7 +34,7 @@ const routes: Routes = [
   },
   {//loadChildren function is use for lazy loading
     path: 'customer', 
-    component: CustomerComponent,
+    component: CustomerComponent ,canActivate: [customerGuard],
     children: [
       { path: 'orderdetails/:id', loadChildren: () => import('../module/customer/order/order.module').then(m => m.OrderModule),pathMatch:'full' },
       { path: 'detail/:id', loadChildren: () => import('../module/customer/details/details.module').then(m => m.DetailsModule),pathMatch:'full' },
@@ -39,9 +43,10 @@ const routes: Routes = [
 
 
   },
-  { path: 'orders', component: OrdersComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'login', component: LoginComponent }
+  { path: 'orders', component: OrdersComponent,canActivate: [customerGuard] },
+  { path: 'about', component: AboutComponent ,canActivate: [customerGuard] },
+  { path: 'login', component: SignInComponent  },
+  {path:'**',component:PageNotAvailableComponent}
 ];
 
 @NgModule({

@@ -1,0 +1,27 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h2 class="text-center mb-4">Login Form</h2>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="card card-body bg-light">
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" [(ngModel)]="user.email" formControlName="email" class="form-control" placeholder="Enter email" [ngClass]="{'is-invalid': loginForm.get('email')?.touched && loginForm.get('email')?.invalid}">
+          <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid" class="invalid-feedback">
+            <div *ngIf="loginForm.get('email')?.errors?.['required']">Email is required.</div>
+            <div *ngIf="loginForm.get('email')?.errors?.['email']">Enter a valid email.</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" [(ngModel)]="user.password" formControlName="password" class="form-control" placeholder="Enter password" [ngClass]="{'is-invalid': loginForm.get('password')?.touched && loginForm.get('password')?.invalid}">
+          <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid" class="invalid-feedback">
+            <div *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</div>
+            <div *ngIf="loginForm.get('password')?.errors?.['passwordStrength']">{{ loginForm.get('password')?.errors?.['passwordStrength'] }}</div>
+          </div>
+        </div>
+        <button *ngIf="!alreadyLoggedIn()" type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Login</button>
+        <button *ngIf="alreadyLoggedIn()" (click)="logout()" class="btn btn-danger" >Logout</button>
+      </form>
+    </div>
+  </div>
+</div>

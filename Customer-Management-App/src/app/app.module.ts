@@ -13,6 +13,10 @@ import {CustomerModule} from '../module/customer/customer.module'
 import { EditcustomerModule } from '../module/customer/editcustomer/editcustomer.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GuardsModule } from '../guards/guards.module';
+import { NotFoundModule } from '../not-found/not-found.module';
+import { SignInModule } from '../components/sign-in/sign-in.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -23,16 +27,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
    ],
    imports: [
    FormsModule,
+   HttpClientModule,
 	 BrowserModule,
 	 AppRoutingModule,
     CustomersModule,
 	 OrdersModule,
 	 AboutModule,
 	 LoginModule,
-    CustomerModule,
+    GuardsModule,
+    NotFoundModule,
     OrdersModule,
     EditcustomerModule,
     BrowserAnimationsModule,
+    SignInModule,
     ToastrModule.forRoot({
       timeOut: 1500, // Set the default visible timeout to 3000 milliseconds (3 seconds)
       positionClass: 'toast-center-bottm', // Set the default position of the Toastr messages
